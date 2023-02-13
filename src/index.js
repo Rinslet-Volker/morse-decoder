@@ -81,6 +81,19 @@ function decode(expr) {
   return resultStr;
 }
 
+/* Короткое решение (привет GPT)
+function decode(expr) {
+  const arrCodeWords = [];
+  for (let i = 0; i < expr.length - 1; i += 10) {
+    arrCodeWords.push(expr.slice(i, i + 10));
+  } 
+
+  const binaryToMorse = binaryString => binaryString.replace(/00/g, '').replace(/10/g, '.').replace(/11/g, '-');
+  const arrCodeLetters = arrCodeWords.map(binaryToMorse);
+  const arrNormal = arrCodeLetters.map(sign => MORSE_TABLE[sign] || ' ');
+  return arrNormal.join('');
+} */
+
 module.exports = {
     decode
 }
